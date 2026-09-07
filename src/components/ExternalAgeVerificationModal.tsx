@@ -247,8 +247,8 @@ export const ExternalAgeVerificationModal: React.FC<ExternalAgeVerificationModal
             <div className="p-3 bg-[#171e19] text-white border-2 border-black rounded flex items-start gap-3">
               <RefreshCw className="w-4 h-4 text-[#ffe17c] animate-spin shrink-0 mt-0.5" />
               <div className="font-mono text-xs text-[#ffe17c] leading-snug">
-                Finish in the Zeroara window: load your Aadhaar, burn, prove, seal, then “Send proof to NEODRIVE”.
-                <div className="text-white/60 mt-1">No card handy? Inside Zeroara, click “Load specimen Aadhaar”.</div>
+                Finish in the Zeroara window: review the request, provide your Aadhaar, check what will be sent, then “Authorize & send to NEODRIVE”.
+                <div className="text-white/60 mt-1">Your card is read on your device only. NEODRIVE receives the outcome, a proof and a receipt — never the card.</div>
               </div>
             </div>
           )}

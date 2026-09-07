@@ -57,10 +57,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({
                 STEP 02 &bull; 18+ CHECK
               </span>
               <h3 className="font-heading font-extrabold text-xl text-white uppercase tracking-tight mb-2">
-                External 18+ KYC
+                Zero-Knowledge 18+ Check
               </h3>
               <p className="font-body text-xs sm:text-sm text-[#b7c6c2] leading-relaxed max-w-xs">
-                VerifID Global validates driver age in 15 seconds with zero paper upload.
+                Zeroara proves you are 18+ from your Aadhaar on your own device — no date of birth or ID number is ever uploaded.
               </p>
             </div>
 

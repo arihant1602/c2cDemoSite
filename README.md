@@ -1,6 +1,6 @@
 # NEODRIVE — Neo-Brutalist Car Rental Platform
 
-A high-performance car rental web application with an ultra-short booking flow, integrated external 18+ age verification KYC service, and strict adherence to Neo-Brutalist design language.
+A high-performance car rental web application with an ultra-short booking flow, 18+ age verification through Zeroara (zero-knowledge proof, no ID data received), and strict adherence to Neo-Brutalist design language.
 
 ## Design Language Specifications
 
@@ -19,11 +19,12 @@ A high-performance car rental web application with an ultra-short booking flow, 
    - Driver legal name & contact
    - Eliminates all legacy 45-minute counter queue paperwork.
 
-2. **External 18+ Age Verification Service (`VerifID Global`)**:
-   - Integrated third-party KYC flow simulating biometric and cryptographic date-of-birth verification.
-   - Includes 1-click test scenarios: Adult Driver (Age 26 - Pass) vs Minor Driver (Age 16 - Rejection Block).
-   - Custom Date of Birth input and document type selector.
-   - Emits a certified verification token to unblock vehicle booking.
+2. **18+ Age Verification through Zeroara (zero-knowledge)**:
+   - NEODRIVE never sees the driver's Aadhaar card, date of birth or ID number.
+   - Clicking **Verify age 18+ with Zeroara** opens Zeroara on the driver's device (popup, or an overlay if popups are blocked) with a request: document `aadhaar`, claim `Age ≥ 18`, requester `NEODRIVE`, and a fresh random challenge nonce.
+   - Zeroara reads the card locally, burns the sensitive fields into a flattened PDF, proves `Age ≥ 18` with a Groth16 zero-knowledge proof, seals everything, and posts back **only** the redacted PDF and a cryptographic receipt.
+   - The SDK checks the receipt against the request (document type, nonce, verified proof, threshold) and NEODRIVE unblocks the booking. The modal can download the redacted PDF and the receipt, and re-run Zeroara's five cryptographic checks independently.
+   - Integration code: `src/lib/zeroara.ts` (typed loader + request), `src/lib/zeroara-sdk.d.ts` (SDK types), `src/components/ExternalAgeVerificationModal.tsx` (UI). Configure the Zeroara origin with `VITE_ZEROARA_ORIGIN` (see `.env.example`); it defaults to `https://zeroara.vercel.app`.
 
 3. **Digital Vehicle Key & NFC Simulator**:
    - Direct phone-to-car unlock simulation.
@@ -37,3 +38,5 @@ npm run dev
 ```
 
 Visit `http://localhost:5173`.
+
+To verify against a local Zeroara instance, run Zeroara (`npm run dev` in the zeroara repo, port 1420) and copy `.env.example` to `.env.local`. Without it the site talks to `https://zeroara.vercel.app`.

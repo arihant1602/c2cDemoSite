@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border-2 border-black shadow-hard-sm">
               <span className="w-2 h-2 rounded-full bg-[#171e19]" />
               <span className="font-heading font-extrabold text-xs uppercase tracking-wider text-black">
-                15-SEC 18+ KYC &bull; 0 COUNTER QUEUES
+                ZERO-KNOWLEDGE 18+ CHECK &bull; 0 COUNTER QUEUES
               </span>
             </div>
 
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({
                       onClick={onOpenVerification}
                       className="w-full py-1 text-[11px] font-heading font-bold bg-white text-black border-2 border-black rounded shadow-hard-sm hover:bg-[#ffe17c] transition-colors"
                     >
-                      {isAgeVerified ? 'VIEW TOKEN' : 'START KYC'}
+                      {isAgeVerified ? 'VIEW PROOF' : 'VERIFY 18+'}
                     </button>
                   </div>
 

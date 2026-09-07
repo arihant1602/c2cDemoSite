@@ -92,7 +92,7 @@ export function App() {
         />
       </main>
 
-      {/* Interactive External 18+ KYC Verification Modal */}
+      {/* 18+ verification through Zeroara (zero-knowledge proof; no DOB or ID number received) */}
       <ExternalAgeVerificationModal
         isOpen={isVerificationModalOpen}
         onClose={() => setIsVerificationModalOpen(false)}

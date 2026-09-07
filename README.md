@@ -40,3 +40,9 @@ npm run dev
 Visit `http://localhost:5173`.
 
 To verify against a local Zeroara instance, run Zeroara (`npm run dev` in the zeroara repo, port 1420) and copy `.env.example` to `.env.local`. Without it the site talks to `https://zeroara.vercel.app`.
+
+## Deployment
+
+The site is static (`npm run build` → `dist/`). Deploy it anywhere (Vercel: framework Vite, no environment variables needed). In production it loads `https://zeroara.vercel.app/sdk/zeroara.js` and opens Zeroara as a popup (overlay fallback); the result comes back over `postMessage` to this site's origin, so both sites must be served over HTTPS. Requirements on the Zeroara side: the deployment must be built from a `main` that contains `public/sdk/zeroara.js` (any commit from 2026-09-07 on).
+
+Optional desktop transport: set `VITE_ZEROARA_MODE=desktop` at build time. The site then creates a session on Zeroara's verifier API (`https://zeroara.vercel.app/api/verify/*`, which needs its Upstash Redis store configured), opens the installed Zeroara app through `zeroara://`, and shows the web app as a fallback if the app is not installed.

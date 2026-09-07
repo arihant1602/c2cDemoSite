@@ -13,11 +13,15 @@ import type { ZeroaraSDK, ZeroaraResult, ZeroaraAuditReport, ZeroaraVerifyOption
 
 export const ZEROARA_ORIGIN = (import.meta.env.VITE_ZEROARA_ORIGIN?.trim() || 'https://zeroara.vercel.app').replace(/\/+$/, '');
 
-/** How Zeroara opens: 'auto' (popup, overlay fallback), 'popup' or 'iframe' (overlay inside this page). */
-export const ZEROARA_MODE: 'auto' | 'popup' | 'iframe' = (() => {
+/** How Zeroara opens: 'auto' (popup, overlay fallback), 'popup', 'iframe' (overlay inside this page),
+ *  or 'desktop' (the installed Zeroara app via zeroara:// with the verifier API; web overlay fallback). */
+export const ZEROARA_MODE: 'auto' | 'popup' | 'iframe' | 'desktop' = (() => {
   const m = import.meta.env.VITE_ZEROARA_MODE?.trim();
-  return m === 'popup' || m === 'iframe' ? m : 'auto';
+  return m === 'popup' || m === 'iframe' || m === 'desktop' ? m : 'auto';
 })();
+
+/** Verifier API base URL for desktop mode. The Zeroara deployment hosts it at /api/verify/*. */
+export const ZEROARA_API = (import.meta.env.VITE_ZEROARA_API?.trim() || ZEROARA_ORIGIN).replace(/\/+$/, '');
 
 /** What NEODRIVE asks Zeroara to prove. */
 export const AGE_REQUEST: ZeroaraVerifyOptions = {
@@ -27,6 +31,9 @@ export const AGE_REQUEST: ZeroaraVerifyOptions = {
   purpose: 'Drivers must be 18 or older to rent a vehicle',
   mode: ZEROARA_MODE,
   origin: ZEROARA_ORIGIN,
+  api: ZEROARA_API,
+  wantRedactedPdf: true,
+  fallback: 'auto',
 };
 
 let sdkPromise: Promise<ZeroaraSDK> | null = null;

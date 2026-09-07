@@ -26,9 +26,11 @@ export interface ZeroaraProof {
   documentLabel: string;
   /** The cryptographic receipt (audit package), kept verbatim for audits. */
   receipt: unknown;
-  /** Flattened, black-boxed PDF of the document. */
+  /** Flattened, black-boxed PDF of the document (empty when not shared). */
   redactedPdf: Uint8Array;
   redactedPdfName: string;
+  /** True when the verifier API (desktop transport) checked the proof server-side. */
+  serverVerified?: boolean;
 }
 
 export interface VerificationResult {

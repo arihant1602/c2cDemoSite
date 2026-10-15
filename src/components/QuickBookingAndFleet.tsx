@@ -61,7 +61,7 @@ export const QuickBookingAndFleet: React.FC<QuickBookingAndFleetProps> = ({
     }
 
     if (!isVerified) {
-      setFormError('You must verify you are 18+ via external KYC before booking.');
+      setFormError('You must prove you are 18+ with Zeroara before booking.');
       onOpenVerification();
       return;
     }
@@ -211,8 +211,8 @@ export const QuickBookingAndFleet: React.FC<QuickBookingAndFleetProps> = ({
                   </div>
                   <span className="text-[11px] font-body text-black/70 font-medium">
                     {isVerified
-                      ? `Approved by VerifID (Age: ${verificationResult?.age})`
-                      : 'Third-party KYC API confirms age 18+ to unlock rental.'}
+                      ? 'Proven by Zeroara in zero knowledge — no date of birth shared.'
+                      : 'Zeroara proves age 18+ from your Aadhaar without revealing it.'}
                   </span>
                 </div>
               </div>
@@ -224,7 +224,7 @@ export const QuickBookingAndFleet: React.FC<QuickBookingAndFleetProps> = ({
                     onClick={onOpenVerification}
                     className="flex-1 sm:flex-none px-4 py-2.5 bg-[#b7c6c2] text-black font-heading font-extrabold text-xs uppercase border-2 border-black rounded shadow-hard-sm hover:bg-white transition-all"
                   >
-                    VERIFY AGE 18+ (EXTERNAL KYC)
+                    VERIFY AGE 18+ WITH ZEROARA
                   </button>
                 ) : (
                   <button
@@ -232,7 +232,7 @@ export const QuickBookingAndFleet: React.FC<QuickBookingAndFleetProps> = ({
                     onClick={onOpenVerification}
                     className="px-3 py-2 bg-white text-black font-heading font-bold text-xs border border-black"
                   >
-                    Change KYC
+                    Re-verify
                   </button>
                 )}
 

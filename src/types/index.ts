@@ -16,8 +16,26 @@ export interface Car {
   };
 }
 
+/** What Zeroara handed back. NEODRIVE never sees the date of birth or the ID number. */
+export interface ZeroaraProof {
+  requestId: string;
+  nonce: string;
+  sealHex: string;
+  proofVerified: boolean;
+  threshold: string;
+  documentLabel: string;
+  /** The cryptographic receipt (audit package), kept verbatim for audits. */
+  receipt: unknown;
+  /** Flattened, black-boxed PDF of the document (empty when not shared). */
+  redactedPdf: Uint8Array;
+  redactedPdfName: string;
+  /** True when the verifier API (desktop transport) checked the proof server-side. */
+  serverVerified?: boolean;
+}
+
 export interface VerificationResult {
   verified: boolean;
+  /** Not populated by Zeroara: the exact age is never disclosed, only "Age ≥ 18". */
   age?: number;
   dob?: string;
   idType?: string;
@@ -25,6 +43,7 @@ export interface VerificationResult {
   provider: string;
   timestamp: string;
   message: string;
+  zeroara?: ZeroaraProof;
 }
 
 export interface BookingData {

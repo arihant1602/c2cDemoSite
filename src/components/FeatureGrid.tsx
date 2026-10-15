@@ -4,8 +4,8 @@ import { ShieldCheck, Smartphone, Zap } from 'lucide-react';
 const FEATURES = [
   {
     icon: ShieldCheck,
-    title: '18+ External KYC',
-    desc: 'Biometric verification in 15 seconds. Confirm your eligibility once and bypass all manual counter queues.'
+    title: '18+ Zero-Knowledge KYC',
+    desc: 'Prove you are 18+ from your Aadhaar on your own device — no date of birth or ID number shared. Confirm once and bypass all counter queues.'
   },
   {
     icon: Smartphone,

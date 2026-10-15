@@ -73,7 +73,7 @@ export const ProblemVsSolution: React.FC = () => {
               <ul className="space-y-3 font-body font-bold text-sm text-black">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-5 h-5 text-black fill-[#b7c6c2] shrink-0 mt-0.5" />
-                  <span>15-second external 18+ biometric age check with zero paperwork</span>
+                  <span>Zero-knowledge 18+ age check — your date of birth and ID number stay on your device</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle className="w-5 h-5 text-black fill-[#b7c6c2] shrink-0 mt-0.5" />

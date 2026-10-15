@@ -38,7 +38,7 @@ export const FinalCTAAndFooter: React.FC<FinalCTAAndFooterProps> = ({
               className="w-full sm:w-auto neo-btn-secondary px-6 py-3.5 text-base border-2 border-black rounded-neo-btn shadow-hard hover:shadow-none flex items-center justify-center gap-2"
             >
               <ShieldCheck className="w-4 h-4" />
-              <span>TEST 18+ KYC</span>
+              <span>VERIFY 18+ WITH ZEROARA</span>
             </button>
           </div>
 
@@ -62,7 +62,7 @@ export const FinalCTAAndFooter: React.FC<FinalCTAAndFooterProps> = ({
                 </span>
               </div>
               <p className="font-body text-xs text-[#b7c6c2] leading-relaxed">
-                Keyless, instant car rentals with external 18+ biometric verification.
+                Keyless, instant car rentals with zero-knowledge 18+ verification by Zeroara.
               </p>
               
               {/* 10x10 social squares */}
@@ -107,7 +107,7 @@ export const FinalCTAAndFooter: React.FC<FinalCTAAndFooterProps> = ({
                 VERIFICATION
               </h4>
               <ul className="space-y-1.5 font-body text-xs text-[#b7c6c2]">
-                <li><button onClick={onOpenVerification} className="hover:text-[#ffe17c]">VerifID Global API</button></li>
+                <li><button onClick={onOpenVerification} className="hover:text-[#ffe17c]">Zeroara verification</button></li>
                 <li><span className="hover:text-[#ffe17c] cursor-pointer">18+ Age Check Policy</span></li>
                 <li><span className="hover:text-[#ffe17c] cursor-pointer">Zero Paper Storage</span></li>
                 <li><span className="hover:text-[#ffe17c] cursor-pointer">NFC Smart Keys</span></li>
@@ -131,7 +131,7 @@ export const FinalCTAAndFooter: React.FC<FinalCTAAndFooterProps> = ({
 
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-[#b7c6c2]/70 gap-2">
             <div>&copy; {new Date().getFullYear()} NEODRIVE PROTOCOL. ALL RIGHTS RESERVED.</div>
-            <div>STRICT NEO-BRUTALIST SPEC &bull; VERIFID EXTERNAL KYC</div>
+            <div>STRICT NEO-BRUTALIST SPEC &bull; ZEROARA ZERO-KNOWLEDGE KYC</div>
           </div>
 
         </div>

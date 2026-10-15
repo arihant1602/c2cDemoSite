@@ -87,10 +87,10 @@ export const BookingSuccessModal: React.FC<BookingSuccessModalProps> = ({
             <div className="bg-[#272727] p-2 border border-white/20 flex items-center justify-between text-xs font-mono">
               <span className="flex items-center gap-1.5 text-white">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#28c840]" />
-                <span>Age 18+ Verified</span>
+                <span>Age 18+ proven · Zeroara</span>
               </span>
               <span className="text-[#ffe17c] text-[11px] truncate max-w-[160px]">
-                {bookingData.verificationResult?.verificationId || 'EXT_KYC_VERIFIED'}
+                {bookingData.verificationResult?.verificationId || 'ZK-VERIFIED'}
               </span>
             </div>
           </div>
